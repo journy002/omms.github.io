@@ -1,0 +1,70 @@
+/* COMMON */
+/* .summary__title로 font-size를 줄이려고 하면 줄어들지 않는다.
+   그 이유는 명시적 순번이 main.css에 sumarry__title에 적용된 font-size 순번이 더 높기 떄문이다.
+   그렇다고 선택자를 추가적으로 늘려주면 다른 부분에 적용이 안될 수 있기 때문에 !important 플래그를 사용하여
+   small device일 경우 34px로 폰트사이즈를 바꿔줄 수 있다.
+*/
+.summary__title {
+    font-size: 34px !important;
+}
+.summary__description {
+    font-size: 24px;
+}
+
+
+/* FEATURE */
+.section--feature .tiles li {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* WHERE IS */
+#map {
+    /* width를 100%로 주면 너비, 즉 가로사이즈가 부모요소(inner)를 따라가기 때문에 문제가 생긴다.
+       auto를 지정해주므로서 이 문제를 해결할 수 있다.
+    */
+    /* 
+        inner 부분을 건들이지 않고 map만 늘어나게 하고 싶기 때문에 20px로 넣어준 패딩값을
+       -20px을 사용하여 map의 너비만 늘려준다.
+       꼭 width: auto로 초기화 시켜주고 -20px을 써줘야 한다.(주의)
+    */
+    width: auto;
+    margin: 40px -20px 0 -20px;
+    border-right: none;
+    border-left: none;
+}
+
+
+/* CARD */
+.section--pricing .card {
+    display: block;
+}
+
+.section--pricing .card .cell2 {
+    border-left: none;
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* FOOTER */
+footer .site-links {
+    float: none;
+    /* 
+        main.css에 display:flex가 되있어서 text-align이 안먹는다.
+        그럴땐 display:block으로 바꿔주면 된다.
+    */
+    display: block;
+    text-align: center;
+}
+footer .site-links:first-child {
+    margin-bottom: 20px;
+}
+footer .site-links li {
+    /* 
+    각각의 내용들이 수평을 이뤄야 하기때문에 inline을 사용해서 화면에 출력되는 방식을
+    글자를 다루는데 특화되게 하여 고쳐쓰게 끔 하는 의미이다.
+     */
+    display: inline;
+}
